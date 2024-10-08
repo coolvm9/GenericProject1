@@ -355,3 +355,26 @@ Here’s a **table format** comparing the services offered by **Azure Document I
 - **Unstructured.io**: Great for handling mixed content in PDFs (text, tables, images) with a strong focus on chunking and partitioning for document processing.
 
 Let me know if you need further clarification on any specific service!
+
+
+Here’s a table specifically for **GCP Document AI (Doc AI)** services, showing the service name, description, and the best use cases:
+
+| **Service Name**                  | **Description**                                                                                              | **Best For**                                      |
+|-----------------------------------|--------------------------------------------------------------------------------------------------------------|---------------------------------------------------|
+| **General Processor**             | Extracts text, layout, entities, and tables from general documents like PDFs and Word documents.              | PDFs, DOCX, general document processing            |
+| **Form Parser**                   | Extracts form fields, tables, and key-value pairs from documents such as forms and surveys.                   | Forms (PDF, scanned forms), surveys                |
+| **Invoice Parser**                | Extracts invoice-specific fields like amounts, dates, vendor details, and line items.                         | Invoice PDFs, scanned images                       |
+| **Expense Parser**                | Extracts expense-related data from receipts and invoices, including totals, dates, and merchant information.   | Expense receipts, invoices                         |
+| **Identity Parser**               | Extracts key details from identity documents such as passports, driver’s licenses, and ID cards.              | Identity documents (passports, licenses, ID cards) |
+| **Table Parser**                  | Detects and extracts tabular data from documents, including rows, columns, and headers.                       | Tables in PDFs, DOCX, spreadsheets                 |
+| **Custom Document AI**            | Enables users to train custom models to extract specific information from unique or structured documents.      | Custom document types, specialized document layouts|
+
+### Summary of GCP Document AI:
+- **General Processor**: Best for extracting text, layout, and tables from common document types like PDFs and DOCX.
+- **Form Parser**: Specifically designed to extract data from forms and surveys.
+- **Invoice Parser & Expense Parser**: Specialized for financial documents like invoices and receipts.
+- **Identity Parser**: Useful for extracting structured data from identity documents like passports and licenses.
+- **Table Parser**: Extracts structured tabular data from various types of documents.
+- **Custom Document AI**: Allows users to train models to suit specific document structures and use cases.
+
+Let me know if you need more details or further comparisons!
