@@ -378,3 +378,135 @@ Here’s a table specifically for **GCP Document AI (Doc AI)** services, showing
 - **Custom Document AI**: Allows users to train models to suit specific document structures and use cases.
 
 Let me know if you need more details or further comparisons!
+
+
+Yes, both **Azure Document Intelligence (Layout Model)** and **GCP Document AI (General Processor)** provide their outputs in **JSON format**. The JSON output contains detailed information about the content and structure of the documents, including extracted text, tables, key-value pairs, and more.
+
+### 1. **Azure Document Intelligence (Layout Model)**:
+   - **Output Format**: JSON
+   - **Details Extracted**:
+     - **Text**: Extracted text from the document, including paragraphs, headers, and individual lines.
+     - **Tables**: Structured tables with rows and cells, including text content and position on the page.
+     - **Selection Marks**: Elements like checkboxes or radio buttons.
+     - **Bounding Boxes**: Coordinates of the extracted elements (for layout preservation).
+     - **Confidence Scores**: Each extracted element includes a confidence score indicating how certain the model is about the accuracy.
+
+   **Sample Output (Azure Layout Model)**:
+   ```json
+   {
+     "document": {
+       "pages": [
+         {
+           "pageNumber": 1,
+           "dimensions": {
+             "width": 8.5,
+             "height": 11.0,
+             "unit": "inch"
+           },
+           "paragraphs": [
+             {
+               "boundingBox": {
+                 "vertices": [
+                   { "x": 45, "y": 90 },
+                   { "x": 450, "y": 90 },
+                   { "x": 450, "y": 120 },
+                   { "x": 45, "y": 120 }
+                 ]
+               },
+               "text": "This is a sample paragraph extracted from the PDF.",
+               "confidence": 0.99
+             }
+           ],
+           "tables": [
+             {
+               "rows": [
+                 {
+                   "cells": [
+                     { "text": "Header 1" },
+                     { "text": "Header 2" }
+                   ]
+                 },
+                 {
+                   "cells": [
+                     { "text": "Data 1" },
+                     { "text": "Data 2" }
+                   ]
+                 }
+               ]
+             }
+           ]
+         }
+       ]
+     }
+   }
+   ```
+
+### 2. **GCP Document AI (General Processor)**:
+   - **Output Format**: JSON
+   - **Details Extracted**:
+     - **Text**: Full document text, split into logical elements like paragraphs, sentences, and tokens.
+     - **Entities**: Identified entities such as names, dates, and amounts.
+     - **Tables**: Extracted tables with structured rows, columns, and text.
+     - **Bounding Boxes**: For layout-based documents (e.g., PDFs), bounding boxes are provided for each element (text, tables, images).
+     - **Confidence Scores**: Each element has an associated confidence score.
+
+   **Sample Output (GCP Document AI General Processor)**:
+   ```json
+   {
+     "document": {
+       "text": "This is the extracted text from the document.",
+       "pages": [
+         {
+           "pageNumber": 1,
+           "dimensions": {
+             "width": 8.5,
+             "height": 11.0
+           },
+           "paragraphs": [
+             {
+               "boundingBox": {
+                 "vertices": [
+                   { "x": 0.1, "y": 0.1 },
+                   { "x": 0.9, "y": 0.1 },
+                   { "x": 0.9, "y": 0.2 },
+                   { "x": 0.1, "y": 0.2 }
+                 ]
+               },
+               "text": "This is a paragraph of text from the document.",
+               "confidence": 0.98
+             }
+           ],
+           "tables": [
+             {
+               "headerRows": [
+                 {
+                   "cells": [
+                     { "text": "Header 1" },
+                     { "text": "Header 2" }
+                   ]
+                 }
+               ],
+               "bodyRows": [
+                 {
+                   "cells": [
+                     { "text": "Data 1" },
+                     { "text": "Data 2" }
+                   ]
+                 }
+               ]
+             }
+           ]
+         }
+       ]
+     }
+   }
+   ```
+
+### Summary of Outputs:
+- **Both Azure and GCP services provide structured JSON output**, which includes text, tables, bounding boxes, and other relevant data extracted from the document.
+- **Bounding Boxes**: Both services include bounding boxes for layout-based documents (PDFs), helping to preserve the spatial layout.
+- **Tables and Paragraphs**: They both handle text, tables, and other structural elements well, making it easy to work with different document types.
+
+This **JSON output** is ideal for further processing, indexing, embedding, or rendering in other applications.
+
+Let me know if you need further customization or help with testing these services!
